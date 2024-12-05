@@ -19,6 +19,8 @@ class UserCreateDTO extends DTO
 
     public ?int $fasl;
 
+    public ?int $role_id;
+
     public ?string $motherName;
 
     public ?string $motherPhone;
@@ -36,6 +38,7 @@ class UserCreateDTO extends DTO
         string $email = parent::STRING,
         int $grad = parent::INT,
         int $fasl = parent::INT,
+        int $role_id = parent::INT,
         string $motherName = parent::STRING,
         string $motherPhone = parent::STRING,
         string $fatherName = parent::STRING,

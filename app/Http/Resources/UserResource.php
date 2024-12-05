@@ -20,13 +20,12 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'grad' => $this->grad,
             'fasl' => $this->fasl,
+            'role' => $this->whenLoaded('role', $this->role->name),
             'mother_name' => $this->mother_name,
             'mother_phone' => $this->mother_phone,
             'father_name' => $this->father_name,
             'father_phone' => $this->father_phone,
             'address' => $this->address,
-
-
         ];
     }
 }

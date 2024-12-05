@@ -26,5 +26,6 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['as' => 'api.', 'prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('/', [UserController::class, 'index']);
     Route::post('store', [UserController::class, 'store']);
 });

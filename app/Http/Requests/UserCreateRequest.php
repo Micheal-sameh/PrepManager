@@ -26,13 +26,13 @@ class UserCreateRequest extends FormRequest
             'email' => 'required|email|unique:users',
             'phone' =>'required|unique:users',
             'grad' => 'required|integer|in:1,2,3',
-            'role' => 'string',
+            'role' => 'integer|exists:roles,id',
             'mother_name' => 'string',
             'mother_phone' => 'string|min:11|max:11',
             'father_name' => 'string',
             'father_phone' => 'string|min:11|max:11',
             'address' => 'string',
-            'fasl' => 'integer|exists:fasls,id',
+            // 'fasl' => 'integer|exists:fasls,id',
         ];
     }
 }
