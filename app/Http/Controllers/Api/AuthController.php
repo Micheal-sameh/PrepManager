@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Resources\UserResource;
 use App\Traits\HttpResponses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,9 +22,9 @@ class AuthController extends Controller
         }
         $user = auth()->user();
         return $this->success([
-            'user' => $user,
+            'user' => new UserResource($user),
             'token' => $user->createToken('API Token of' . $user->name)->plainTextToken,
-        ]);
+        ], 'login successfuly');
     }
 
     public function logout()
