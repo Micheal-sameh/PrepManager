@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\DTOs\UserCreateDTO;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Services\UserService;
@@ -43,8 +45,8 @@ class UserController extends Controller
     public function store(UserCreateRequest $request)
     {
         $input = new UserCreateDTO(...$request->only(
-            'name', 'phone', 'email', 'grad', 'fasl', 'role_id', 'mother_name', 'mother_phone', 'father_name',
-            'father_phone', 'address'
+            'name', 'phone', 'email', 'grad', 'fasl', 'role_id', 'mother_name',
+            'mother_phone', 'father_name', 'father_phone', 'address'
         ));
         $user = $this->userService->store($input);
 
@@ -70,10 +72,17 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UserUpdateRequest $request, $id)
     {
-        //
-    }
+        $input = new UserCreateDTO(...$request->only(
+            'name', 'phone', 'email', 'grad', 'fasl', 'role_id', 'mother_name',
+            'mother_phone', 'father_name', 'father_phone', 'address'
+            ));
+
+            $user = $this->userService->update($input, $id);
+
+            return $this->success(new UserResource($user));
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -81,5 +90,19 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function changePassword(ChangePasswordRequest $request, $id)
+    {
+        $user = $this->userService->changePassword($request->password, $id);
+
+        return $this->success(new UserResource($user));
+    }
+
+    public function resetPassword($id)
+    {
+        $user = $this->userService->resetPassword($id);
+
+        return $this->success(new UserResource($user));
     }
 }
