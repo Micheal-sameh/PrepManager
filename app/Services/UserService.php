@@ -1,12 +1,16 @@
 <?php
 
 
-namespace App\Http\Requests;
+namespace App\Services;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Repositories\UserRepository;
 
 class UserService
 {
+    public function __construct(protected UserRepository $userRepository)
+    {
+
+    }
     public function index()
     {
         //
@@ -14,6 +18,8 @@ class UserService
 
     public function store($input)
     {
-        
+        $user = $this->userRepository->store($input);
+
+        return $user;
     }
 }
