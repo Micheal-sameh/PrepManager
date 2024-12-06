@@ -29,7 +29,7 @@ class UserService
 
     public function update($input, $id)
     {
-        $user = $this->userRepository->update();
+        $user = $this->userRepository->update($input, $id);
         $user->load('role');
 
         return $user;

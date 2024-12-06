@@ -28,4 +28,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['as' => 'api.', 'prefix' => 'users', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/', [UserController::class, 'index']);
     Route::post('store', [UserController::class, 'store']);
+    Route::post('update/{id}', [UserController::class, 'update']);
+    Route::post('change-password/{id}', [UserController::class, 'changePassword']);
+    Route::post('reset-password/{id}', [UserController::class, 'resetPassword']);
 });
