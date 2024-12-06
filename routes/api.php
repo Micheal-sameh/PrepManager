@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\FaslController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,9 @@ Route::group(['as' => 'api.', 'prefix' => 'users', 'middleware' => ['auth:sanctu
     Route::post('update/{id}', [UserController::class, 'update']);
     Route::post('change-password/{id}', [UserController::class, 'changePassword']);
     Route::post('reset-password/{id}', [UserController::class, 'resetPassword']);
+});
+
+Route::group(['as' => 'api.', 'prefix' => 'fasls', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('', [FaslController::class, 'index']);
+    Route::post('store', [FaslController::class, 'store']);
 });
