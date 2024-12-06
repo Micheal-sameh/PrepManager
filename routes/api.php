@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\FaslController;
+use App\Http\Controllers\Api\FaslMemberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,4 +38,10 @@ Route::group(['as' => 'api.', 'prefix' => 'users', 'middleware' => ['auth:sanctu
 Route::group(['as' => 'api.', 'prefix' => 'fasls', 'middleware' => ['auth:sanctum']], function () {
     Route::get('', [FaslController::class, 'index']);
     Route::post('store', [FaslController::class, 'store']);
+});
+
+Route::group(['as' => 'api.', 'prefix' => 'faslMember', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('', [FaslMemberController::class, 'index']);
+    Route::post('store', [FaslMemberController::class, 'store']);
+    Route::post('update/{id}', [FaslMemberController::class, 'update']);
 });
