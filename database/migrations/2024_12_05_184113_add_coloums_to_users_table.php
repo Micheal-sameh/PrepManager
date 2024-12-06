@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('mother_phone')->nullable();
             $table->string('father_name')->nullable();
             $table->string('father_phone')->nullable();
+            $table->integer('role_id');
             $table->string('address')->nullable();
             $table->string('location')->nullable();
             $table->timestamp('deleted_at')->nullable();
