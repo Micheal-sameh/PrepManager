@@ -12,10 +12,11 @@ class FaslService
     {
 
     }
+
     public function index()
     {
         $fasls = $this->faslRepository->index();
-        $fasls->load('members', 'create');
+        $fasls->load('members', 'createBy');
 
         return $fasls;
     }
@@ -23,7 +24,7 @@ class FaslService
     public function store($name, $grad)
     {
         $fasl = $this->faslRepository->store($name, $grad);
-        $fasl->load('creat');
+        $fasl->load('createBy');
 
         return $fasl;
     }
@@ -31,6 +32,7 @@ class FaslService
     public function update(Fasl $id, $name = null, $grad = null)
     {
         $fasl = $this->faslRepository->update($id, $name, $grad);
+        $fasl->load('createBy');
 
         return $fasl;
     }

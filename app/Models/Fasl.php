@@ -15,13 +15,13 @@ class Fasl extends Model
         'created_by',
     ];
 
-    public function creat()
+    public function createBy()
     {
         return $this->belongsTo(User::class, 'created_by');
     }
 
     public function members()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(FaslMember::class);
     }
 }

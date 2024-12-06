@@ -19,10 +19,11 @@ class FaslResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'grad' => Grads::getStringValue($this->grad),
-            'created_by' => $this->whenLoaded('creat', $this->creat->name),
-            // 'members' => $this->whenLoaded('members', function(){
-            //     return $this->members->map(fn ($member) => $member->user->name);
-            // }),
+            'created_by' => $this->whenLoaded('createBy', $this->createBy->name),
+            'members' => $this->whenLoaded('members', function(){
+                return FaslMembersResource::collection($this->members);
+                // return $this->members->map(fn ($member) => $member->user->name);
+            }),
 
         ];
     }

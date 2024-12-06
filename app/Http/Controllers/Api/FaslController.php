@@ -73,7 +73,7 @@ class FaslController extends Controller
             'name', 'grad'
         ));
 
-        return $fasl;
+        return $this->success(new FaslResource($fasl)) ;
     }
 
     /**
