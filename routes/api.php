@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\FaslController;
 use App\Http\Controllers\Api\FaslMemberController;
+use App\Http\Controllers\EventCategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +45,10 @@ Route::group(['as' => 'api.', 'prefix' => 'faslMember', 'middleware' => ['auth:s
     Route::get('', [FaslMemberController::class, 'index']);
     Route::post('store', [FaslMemberController::class, 'store']);
     Route::post('update/{id}', [FaslMemberController::class, 'update']);
+});
+
+Route::group(['as' => 'api.', 'prefix' => 'event-category', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('', [EventCategoryController::class, 'index']);
+    Route::post('store', [EventCategoryController::class, 'store']);
+    Route::post('update/{id}', [EventCategoryController::class, 'update']);
 });
