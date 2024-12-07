@@ -20,7 +20,8 @@ return new class extends Migration
             $table->integer('points_1');
             $table->integer('points_2')->nullable();
             $table->integer('points_3')->nullable();
-            $table->integer('created_by');
+            $table->foreignId('event_category_id')->constrained();
+            $table->foreignId('created_by')->constrained('users');
             $table->timestamps();
         });
     }

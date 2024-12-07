@@ -25,6 +25,7 @@ class EventRepository
     {
         $event = $this->model->create([
             'name' => $input->name,
+            'event_category' => $input->event_category,
             'description' => $input->description,
             'goal' => $input->goal,
             'location' => $input->location,

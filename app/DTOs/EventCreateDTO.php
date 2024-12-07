@@ -11,6 +11,8 @@ class EventCreateDTO extends DTO
 {
     public ?string $name;
 
+    public ?int $event_category;
+
     public ?string $description;
 
     public ?string $goal;
@@ -25,6 +27,7 @@ class EventCreateDTO extends DTO
 
     public function __construct(
         string $name = parent::STRING,
+        string $event_category = parent::INT,
         string $description = parent::STRING,
         string $goal = parent::STRING,
         string $location = parent::STRING,

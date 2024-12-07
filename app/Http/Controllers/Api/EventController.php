@@ -43,7 +43,7 @@ class EventController extends Controller
     public function store(EventCreateRequest $request)
     {
         $input = new EventCreateDTO(...$request->only(
-            'name', 'description', 'goal', 'location', 'points_1', 'points_2', 'points_3'
+            'name', 'event_category', 'description', 'goal', 'location', 'points_1', 'points_2', 'points_3'
         ));
         $event = $this->eventService->store($input);
 

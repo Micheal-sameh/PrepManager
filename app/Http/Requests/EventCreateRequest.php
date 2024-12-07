@@ -23,6 +23,7 @@ class EventCreateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'event_category' => 'required|integer|exsits:event_categories',
             'description' => 'string',
             'goal' => 'required|string',
             'location' => 'string',

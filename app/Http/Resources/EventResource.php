@@ -17,14 +17,15 @@ class EventResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'event_category' => $this->whenLoaded('eventCategory', fn () => $this->eventCategory->name),
             'name' => $this->name,
             'description' => $this->description,
             'goal' => $this->goal,
             'location' => $this->location,
-            'bonus_1' => $this->bonus_1,
-            'bonus_2' => $this->bonus_2,
-            'bonus_3' => $this->bonus_3,
-            'created_by' => $this->whenLoaded('createdBy',$this->createdBy->name),
+            'points_1' => $this->points_1,
+            'points_2' => $this->points_2,
+            'points_3' => $this->points_3,
+            'created_by' => $this->whenLoaded('createdBy',fn() => $this->createdBy->name),
             // 'members' => $this->whenLoaded('createdBy',$this->createdBy->name),
         ];
     }
