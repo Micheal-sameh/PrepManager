@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\EventCategoryCreateRequest;
 use App\Http\Resources\EventCategoryResource;
 use App\Models\EventCategory;
