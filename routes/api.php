@@ -5,7 +5,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\FaslController;
 use App\Http\Controllers\Api\FaslMemberController;
 use App\Http\Controllers\EventCategoryController;
-use App\Http\Controllers\EventController;
+use App\Http\Controllers\Api\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
