@@ -26,9 +26,9 @@ class EventCreateRequest extends FormRequest
             'description' => 'string',
             'goal' => 'required|string',
             'location' => 'string',
-            'bonus_1' => 'required|integer|min:0',
-            'bonus_2' => 'integer|min:0',
-            'bonus_3' => 'integer|min:0',
+            'points_1' => 'required|integer|min:0',
+            'points_2' => 'integer|min:0',
+            'points_3' => 'integer|min:0',
         ];
     }
 }
