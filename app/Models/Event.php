@@ -15,9 +15,9 @@ class Event extends Model
         'location',
         'goal',
         'created_by',
-        'bonus_1',
-        'bonus_2',
-        'bonus_3',
+        'points_1',
+        'points_2',
+        'points_3',
     ];
 
     public function createdBy()
