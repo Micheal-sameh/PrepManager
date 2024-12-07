@@ -37,14 +37,4 @@ class EventRepository
 
         return $event;
     }
-
-    public function update(EventCategory $category, $name, $description)
-    {
-        $category->update([
-            'name' => $name ?? $category->name,
-            'description' => $description ?? $category->description,
-        ]);
-
-        return $category;
-    }
 }

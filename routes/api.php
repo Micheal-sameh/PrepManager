@@ -56,5 +56,4 @@ Route::group(['as' => 'api.', 'prefix' => 'event-category', 'middleware' => ['au
 Route::group(['as' => 'api.', 'prefix' => 'events', 'middleware' => ['auth:sanctum']], function () {
     Route::get('', [EventController::class, 'index']);
     Route::post('store', [EventController::class, 'store']);
-    Route::post('update/{id}', [EventController::class, 'update']);
 });
