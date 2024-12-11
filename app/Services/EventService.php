@@ -3,6 +3,7 @@
 
 namespace App\Services;
 
+use App\Models\Event;
 use App\Models\EventCategory;
 use App\Repositories\EventRepository;
 
@@ -14,24 +15,18 @@ class EventService
     }
     public function index()
     {
-        $categories = $this->eventRepository->index();
-        $categories->load('createdBy');
+        $events = $this->eventRepository->index();
+        $events->load('createdBy', 'eventCategory');
 
-        return $categories;
+        return $events;
     }
 
     public function store($input)
     {
-        $member = $this->eventRepository->store($input);
-        $member->load('createdBy');
+        $event = $this->eventRepository->store($input);
+        $event->load('createdBy', 'eventCategory');
 
-        return $member;
+        return $event;
     }
 
-    public function update(EventCategory $category, $name = null, $description = null)
-    {
-        $category = $this->eventRepository->update($category, $name, $description);
-
-        return $category;
-    }
 }

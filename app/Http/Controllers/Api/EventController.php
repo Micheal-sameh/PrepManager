@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\DTOs\EventCreateDTO;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\EventCreateRequest;
 use App\Http\Resources\EventResource;
 use App\Models\EventCategory;
@@ -42,7 +43,7 @@ class EventController extends Controller
     public function store(EventCreateRequest $request)
     {
         $input = new EventCreateDTO(...$request->only(
-            'name', 'description', 'goal', 'location', 'bonus_1', 'bonus_2', 'bonus_3'
+            'name', 'event_category', 'description', 'goal', 'location', 'points_1', 'points_2', 'points_3'
         ));
         $event = $this->eventService->store($input);
 

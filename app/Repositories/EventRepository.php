@@ -25,25 +25,16 @@ class EventRepository
     {
         $event = $this->model->create([
             'name' => $input->name,
+            'event_category_id' => $input->event_category,
             'description' => $input->description,
             'goal' => $input->goal,
             'location' => $input->location,
-            'bonus_1' => $input->bonus_1,
-            'bonus_2' => $input->bonus_2,
-            'bonus_3' => $input->bonus_3,
+            'points_1' => $input->points_1,
+            'points_2' => $input->points_2,
+            'points_3' => $input->points_3,
             'created_by' => Auth::id(),
         ]);
 
         return $event;
-    }
-
-    public function update(EventCategory $category, $name, $description)
-    {
-        $category->update([
-            'name' => $name ?? $category->name,
-            'description' => $description ?? $category->description,
-        ]);
-
-        return $category;
     }
 }

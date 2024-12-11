@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('location')->nullable();
             $table->string('goal')->nullable();
-            $table->integer('bonus_1');
-            $table->integer('bonus_2')->nullable();
-            $table->integer('bonus_3')->nullable();
-            $table->integer('created_by');
+            $table->integer('points_1');
+            $table->integer('points_2')->nullable();
+            $table->integer('points_3')->nullable();
+            $table->foreignId('event_category_id')->constrained();
+            $table->foreignId('created_by')->constrained('users');
             $table->timestamps();
         });
     }

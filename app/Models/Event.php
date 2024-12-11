@@ -11,17 +11,23 @@ class Event extends Model
 
     protected $fillable = [
         'name',
+        'event_category_id',
         'description',
         'location',
         'goal',
         'created_by',
-        'bonus_1',
-        'bonus_2',
-        'bonus_3',
+        'points_1',
+        'points_2',
+        'points_3',
     ];
 
     public function createdBy()
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function eventCategory()
+    {
+        return $this->belongsTo(EventCategory::class, 'event_category_id');
     }
 }
