@@ -4,8 +4,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\FaslController;
 use App\Http\Controllers\Api\FaslMemberController;
-use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\EventCategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
