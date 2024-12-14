@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\FaslController;
 use App\Http\Controllers\Api\FaslMemberController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\EventCategoryController;
+use App\Http\Controllers\Api\EventMemberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -56,4 +57,8 @@ Route::group(['as' => 'api.', 'prefix' => 'event-category', 'middleware' => ['au
 Route::group(['as' => 'api.', 'prefix' => 'events', 'middleware' => ['auth:sanctum']], function () {
     Route::get('', [EventController::class, 'index']);
     Route::post('store', [EventController::class, 'store']);
+    Route::group(['as' => 'api.', 'prefix' => 'members', 'middleware' => ['auth:sanctum']], function () {
+        Route::get('', [EventMemberController::class, 'index']);
+
+    });
 });

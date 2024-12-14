@@ -1,18 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\EventMemberResource;
 use App\Models\EventMember;
+use App\Services\EventMembersService;
+use App\Traits\HttpResponses;
 use Illuminate\Http\Request;
 
 class EventMemberController extends Controller
 {
+    use HttpResponses;
+
+    public function __construct(protected EventMembersService $eventMembersService)
+    {
+
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $members = $this->eventMembersService->index();
+
+        return $this->success(EventMemberResource::collection($members));
     }
 
     /**
